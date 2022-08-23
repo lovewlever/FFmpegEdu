@@ -9,7 +9,7 @@
 class RtmpPush {
     int a = 0;
 public:
-    int localFileStream();
+    int localFileStream(std::string filePath);
 };
 
 

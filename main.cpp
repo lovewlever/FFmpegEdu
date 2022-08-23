@@ -2,6 +2,7 @@
 #include "video/include/LocalYuvToH264.h"
 #include "rtmp/include/SaveFileByRtmp.h"
 #include "video/include/LocalYuvToHevc.h"
+#include "rtmp/include/RtmpPush.h"
 extern "C" {
 #include <libavcodec/avcodec.h>
 #include <libavdevice/avdevice.h>
@@ -150,13 +151,17 @@ int pcmToAac(char *inputFile, char *outFile) {
 }
 
 int main() {
-    auto localYuvToH264 = new LocalYuvToH264();
+    /*auto localYuvToH264 = new LocalYuvToH264();
     localYuvToH264->init("D:\\BigBuckBunny_CIF_24fps.yuv", 288, 352,"D:\\CIF_24fps.mp4");
     //localYuvToH264->checkYuvInfo("D:\\CIF_24fps.mp4");
-    delete localYuvToH264;
+    delete localYuvToH264;*/
 
     /*auto localYuvToHevc = new LocalYuvToHevc();
     localYuvToHevc->start("D:\\BigBuckBunny_CIF_24fps.yuv", 288, 352,"D:\\CIF_24fps265.mp4");
     delete localYuvToHevc;*/
+    cout << "1234" << endl;
+    // 推流
+    RtmpPush rtmpPush;
+    rtmpPush.localFileStream("D:\\迅雷下载\\2022-08-23 16-23-02.flv");
     return 0;
 }
